@@ -38,45 +38,28 @@
         }
 
         .hero {
-            background: url('images/restaurant.jpg') no-repeat center center/cover;
-            height: 60vh;
+            background-color: #f4a7a7; /* Pink background */
+            padding: 1rem 0;
             color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
         .hero-content {
-            position: relative;
             z-index: 2;
             padding: 0 20px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Dark overlay to improve text readability */
-            z-index: 1;
         }
 
         .hero h2 {
             font-size: 2.5em;
             margin-bottom: 0.5em;
-            position: relative;
             z-index: 2;
         }
 
         .hero p {
             font-size: 1.2em;
             margin-bottom: 1.5em;
-            position: relative;
             z-index: 2;
         }
 
@@ -86,16 +69,27 @@
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            position: relative;
             z-index: 2;
+        }
+
+        .hero-image-container {
+            width: 100%;
+            height: auto;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
         }
 
         .quote-container {
             text-align: center;
-            margin: 20px 0;
+            padding: 20px 0;
+            background-color: #f4a7a7; /* Same pink background */
+            margin-top: 0;
         }
 
-        .quote-overlay p {
+        .quote-container p {
             font-size: 1.2em;
             font-style: italic;
             margin: 0;
@@ -145,46 +139,34 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 300px;
-            height: 380px;
+            width: 80px; /* Minimized width */
+            height: 80px; /* Minimized height */
             z-index: 1000;
             border: 2px solid #333;
-            border-radius: 10px;
+            border-radius: 50%; /* Circular shape when minimized */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease;
         }
-
-    <style>
-            <style>
-        /* Chatbot styling */
-        .chatbot-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 320px; /* Updated width */
-            height: 450px; /* Updated height */
-            z-index: 1000;
-            border: 2px solid #333;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-/*         .chatbot-container iframe {
-            border: none;
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-        } */
-    </style>
-
 
         .chatbot-container iframe {
             border: none;
             width: 100%;
             height: 100%;
+            border-radius: 50%;
+            pointer-events: none; /* Disable interactions in minimized state */
+        }
+
+        .chatbot-container.expanded {
+            width: 320px; /* Expanded width */
+            height: 450px; /* Expanded height */
             border-radius: 10px;
         }
-    </style>
 
+        .chatbot-container.expanded iframe {
+            border-radius: 10px;
+            pointer-events: auto; /* Enable interactions in expanded state */
+        }
     </style>
 </head>
 <body>
@@ -206,11 +188,11 @@
             <p>Your favorite spot for quick and delicious meals!</p>
             <a href="#menu" class="btn">Explore Our Menu</a>
         </div>
+        <div class="hero-image-container">
+            <img src="images/family-eating.jpg" alt="Family enjoying samosa and lassi" class="hero-image">
+        </div>
         <div class="quote-container">
             <p>"Family is not an important thing, it's everything. And sharing good food makes it even better."</p>
-        </div>
-        <div class="hero-image-container">
-            <img src="family-eating.jpg" alt="Family enjoying samosa and lassi" class="hero-image">
         </div>
     </section>
 
@@ -218,35 +200,35 @@
         <h2>Our Menu</h2>
         <div class="menu-grid">
             <div class="menu-item">
-                <img src="pav-bhaji.jpg" alt="Pav Bhaji">
+                <img src="images/pav-bhaji.jpg" alt="Pav Bhaji">
                 <h3>Pav Bhaji</h3>
             </div>
             <div class="menu-item">
-                <img src="chhole-bhature.jpeg" alt="Chhole Bhature">
+                <img src="images/chhole-bhature.jpeg" alt="Chhole Bhature">
                 <h3>Chhole Bhature</h3>
             </div>
             <div class="menu-item">
-                <img src="pizza.jpg" alt="Pizza">
+                <img src="images/pizza.jpg" alt="Pizza">
                 <h3>Pizza</h3>
             </div>
             <div class="menu-item">
-                <img src="mango-lassi.jpg" alt="Mango Lassi">
+                <img src="images/mango-lassi.jpg" alt="Mango Lassi">
                 <h3>Mango Lassi</h3>
             </div>
             <div class="menu-item">
-                <img src="masala-dosa.jpg" alt="Masala Dosa">
+                <img src="images/masala-dosa.jpg" alt="Masala Dosa">
                 <h3>Masala Dosa</h3>
             </div>
             <div class="menu-item">
-                <img src="rava-dosa.jpg" alt="Rava Dosa">
+                <img src="images/rava-dosa.jpg" alt="Rava Dosa">
                 <h3>Rava Dosa</h3>
             </div>
             <div class="menu-item">
-                <img src="samosa.jpg" alt="Samosa">
+                <img src="images/samosa.jpg" alt="Samosa">
                 <h3>Samosa</h3>
             </div>
             <div class="menu-item">
-                <img src="vada-pav.jpg" alt="Vada Pav">
+                <img src="images/vada-pav.jpg" alt="Vada Pav">
                 <h3>Vada Pav</h3>
             </div>
         </div>
@@ -267,11 +249,9 @@
     </section>
 
     <!-- Chatbot Section -->
-    <div class="chatbot-container">
+    <div id="chatbot" class="chatbot-container minimized">
         <iframe
             allow="microphone;"
-            width="320",
-            height="440"
             src="https://console.dialogflow.com/api-client/demo/embedded/121be9f6-29ea-48c9-8d01-f4dc21002061">
         </iframe>
     </div>
@@ -279,5 +259,19 @@
     <footer>
         <p>&copy; 2024 The Eatery Spot. All rights reserved.</p>
     </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const chatbot = document.getElementById('chatbot');
+            const aboutSection = document.getElementById('about');
+            const aboutSectionTop = aboutSection.getBoundingClientRect().top;
+
+            if (aboutSectionTop <= window.innerHeight) {
+                chatbot.classList.add('expanded');
+            } else {
+                chatbot.classList.remove('expanded');
+            }
+        });
+    </script>
 </body>
 </html>
