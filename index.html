@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Eatery Spot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #333;
+            padding: 1rem;
+            text-align: center;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero {
+            background-color: #f4a7a7; /* Pink background */
+            padding: 1rem 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            z-index: 2;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 1.5em;
+            z-index: 2;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #e63946;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            z-index: 2;
+        }
+
+        .hero-image-container {
+            width: 100%;
+            height: auto;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .quote-container {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #f4a7a7; /* Same pink background */
+            margin-top: 0;
+        }
+
+        .quote-container p {
+            font-size: 1.2em;
+            font-style: italic;
+            margin: 0;
+        }
+
+        .menu-section {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .menu-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .menu-item {
+            width: 200px;
+            text-align: center;
+        }
+
+        .menu-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .about-section, .location-section {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .map {
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Chatbot styling */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 80px; /* Minimized width */
+            height: 80px; /* Minimized height */
+            z-index: 1000;
+            border: 2px solid #333;
+            border-radius: 50%; /* Circular shape when minimized */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease;
+        }
+
+        .chatbot-container iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            pointer-events: none; /* Disable interactions in minimized state */
+        }
+
+        .chatbot-container.expanded {
+            width: 320px; /* Expanded width */
+            height: 450px; /* Expanded height */
+            border-radius: 10px;
+        }
+
+        .chatbot-container.expanded iframe {
+            border-radius: 10px;
+            pointer-events: auto; /* Enable interactions in expanded state */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>The Eatery Spot</h1>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#location">Location</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to The Eatery Spot</h2>
+            <p>Your favorite spot for quick and delicious meals!</p>
+            <a href="#menu" class="btn">Explore Our Menu</a>
+        </div>
+        <div class="hero-image-container">
+            <img src="images/family-eating.jpg" alt="Family enjoying samosa and lassi" class="hero-image">
+        </div>
+        <div class="quote-container">
+            <p>"Family is not an important thing, it's everything. And sharing good food makes it even better."</p>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <h2>Our Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="images/pav-bhaji.jpg" alt="Pav Bhaji">
+                <h3>Pav Bhaji</h3>
+            </div>
+            <div class="menu-item">
+                <img src="images/chhole-bhature.jpeg" alt="Chhole Bhature">
+                <h3>Chhole Bhature</h3>
+            </div>
+            <div class="menu-item">
+                <img src="images/pizza.jpg" alt="Pizza">
+                <h3>Pizza</h3>
+            </div>
+            <div class="menu-item">
+                <img src="images/mango-lassi.jpg" alt="Mango Lassi">
+                <h3>Mango Lassi</h3>
+            </div>
+            <div class="menu-item">
+                <img src="images/masala-dosa.jpg" alt="Masala Dosa">
+                <h3>Masala Dosa</h3>
+            </div>
+            <div class="menu-item">
+                <img src="images/rava-dosa.jpg" alt="Rava Dosa">
+                <h3>Rava Dosa</h3>
+            </div>
+            <div class="menu-item">
+                <img src="images/samosa.jpg" alt="Samosa">
+                <h3>Samosa</h3>
+            </div>
+            <div class="menu-item">
+                <img src="images/vada-pav.jpg" alt="Vada Pav">
+                <h3>Vada Pav</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2>About Us</h2>
+        <p>At The Eatery Spot, we aim to serve you the best fast food with a mix of traditional and modern flavors. Our menu is curated to satisfy all your cravings, whether you're in the mood for something spicy, savory, or sweet.</p>
+    </section>
+
+    <section id="location" class="location-section">
+        <h2>Visit Us</h2>
+        <p>Location: Jaycees Chauraha, Jaunpur</p>
+        <p>Open Daily: 10 AM - 10 PM</p>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.7587636786013!2d82.68365967492856!3d25.754743824079998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3991fe8c7afc9391%3A0x8bbf22660e75d8d2!2sJaycees%20Chauraha%2C%20Jaunpur%2C%20Uttar%20Pradesh%20222002!5e0!3m2!1sen!2sin!4v1692451576228!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- Chatbot Section -->
+    <div id="chatbot" class="chatbot-container minimized">
+        <iframe
+            allow="microphone;"
+            src="https://console.dialogflow.com/api-client/demo/embedded/121be9f6-29ea-48c9-8d01-f4dc21002061">
+        </iframe>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 The Eatery Spot. All rights reserved.</p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const chatbot = document.getElementById('chatbot');
+            const aboutSection = document.getElementById('about');
+            const aboutSectionTop = aboutSection.getBoundingClientRect().top;
+
+            if (aboutSectionTop <= window.innerHeight) {
+                chatbot.classList.add('expanded');
+            } else {
+                chatbot.classList.remove('expanded');
+            }
+        });
+    </script>
+</body>
+</html>
